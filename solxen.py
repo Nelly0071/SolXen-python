@@ -27,7 +27,7 @@ def create_or_verify_wallet():
             print("Failed to parse balance. Proceeding with new wallet creation.")
 
     print("Creating new wallet or existing wallet has insufficient balance.")
-    subprocess.run(['solana-keygen', 'new', '--outfile', keypair_path], check=True)
+    subprocess.run(['solana-keygen', 'new', '--force', keypair_path], check=True)
     subprocess.run(['solana', 'airdrop', '1', keypair_path, '--url', 'https://api.devnet.solana.com'], check=True)
     return keypair_path
 
